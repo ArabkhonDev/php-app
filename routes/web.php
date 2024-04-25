@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\FloorController;
+use App\Http\Controllers\GroupController;
+use App\Http\Controllers\LessonController;
+use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,7 +29,11 @@ require __DIR__.'/auth.php';
 Route::prefix('admin')->group(function(){
     Route::resources([
         'users'=>UserController::class,
+        'users'=>TeacherController::class,
         'groups'=>GroupController::class,
         'phones'=>PhoneController::class,
+        'phones'=>FloorController::class,
+        'phones'=>RoomController::class,
+        'phones'=>LessonController::class,
     ]);
 });
